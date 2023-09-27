@@ -4,7 +4,7 @@ using namespace std;
 
 class caesar {
     int key, choice;
-    string plainText = "", cipherText = "";
+    // string plainText = "", cipherText = "";
 
     public:
     caesar() {
@@ -15,14 +15,15 @@ class caesar {
             cout<<"\n3. Exit"<<endl<<endl;
             cin>>choice;
 
-            cout << "\nEnter your Key: ";
-            cin >> key;
-
             switch(choice){
                 case 1:
+					cout << "\nEnter your Key: ";
+            		cin >> key;
                     encrypt();
                     break;
                 case 2:
+					cout << "\nEnter your Key: ";
+            		cin >> key;
                     decrypt();
                     break;
                 case 3:
@@ -34,7 +35,7 @@ class caesar {
     }
 
     void encrypt() {
-
+		string plainText = "", cipherText = "";
         cout << "\nEnter your Message to encrypt: ";
         cin>>plainText;
 
@@ -50,15 +51,15 @@ class caesar {
     }
 
     void decrypt() {
-
+		string plainText = "", cipherText = "";
         cout << "\nEnter your Message to Decrypt: ";
         cin>>cipherText;
 
-        for (int i = 0; i < plainText.length(); i++) {
-            if (isupper(plainText[i])) {
-                cipherText += char(int(plainText[i] + key - 65 + 26) % 26 + 65);
+        for (int i = 0; i < cipherText.length(); i++) {
+            if (isupper(cipherText[i])) {
+                plainText += char(int(cipherText[i] - key - 65 + 26) % 26 + 65);
             } else {
-                cipherText += char(int(plainText[i] + key - 97 + 26) % 26 + 97);
+                plainText += char(int(cipherText[i] - key - 97 + 26) % 26 + 97);
             }
         }
 
